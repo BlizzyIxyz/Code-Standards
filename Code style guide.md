@@ -122,11 +122,11 @@ else
 - Если есть данные: `PlayerDamaged{EventArgs}`
 
 ## 4. Организация файлов и классов
-### 4.1 Порядок в файле (`MonoBehaviour` / класс)
+### 4.1 Порядок в файле (MonoBehaviour / класс)
 - **`using`**
-**`Namespace`**
-**Публичный класс** (имя файла = имя класса)
-**Порядок в классе:**
+- **`Namespace`**
+- **Публичный класс** (имя файла = имя класса)
+- **Порядок в классе:**
 - `#region Serialized Fields`
 - `#region Public Properties`
 - `#region Events`
