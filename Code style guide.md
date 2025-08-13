@@ -126,15 +126,16 @@ else
 - **`using`**
 - **`Namespace`**
 - **Публичный класс** (имя файла = имя класса)
+
 - **Порядок в классе:**
-- `#region Serialized Fields`
-- `#region Public Properties`
-- `#region Events`
-- `#region Unity Messages` (`Awake`, `Start`, `Update`, `FixedUpdate` — в этом порядке)
-- `#region Public Methods`
-- `#region Protected Methods`
-- `#region Private Methods`
-- `#region Helper Types`
+    - `#region Serialized Fields`
+    - `#region Public Properties`
+    - `#region Events`
+    - `#region Unity Messages` (`Awake`, `Start`, `Update`, `FixedUpdate` — в этом порядке)
+    - `#region Public Methods`
+    - `#region Protected Methods`
+    - `#region Private Methods`
+    - `#region Helper Types`
 
 ### 4.2 `Serialized` поля
 - Используй `private` + `[SerializeField]` вместо `public`.
@@ -150,11 +151,10 @@ else
 ### 4.3 Regions
 - Разумно используйте `#region` для разделения больших блоков, но не прячьте чрезмерно код.
 
-5. Комментирование и документация
-5.1 XML-документация
-Для публичного API используйте /// <summary>, param, returns.
-
-Коротко: зачем нужен метод, какие побочные эффекты, исключения.
+## 5. Комментирование и документация
+### 5.1 XML-документация
+- Для публичного API используйте `/// <summary>, param, returns`.
+- **Коротко:** зачем нужен метод, какие побочные эффекты, исключения.
 
 ### 5.2 Внутренние комментарии
 - Комментируйте почему, а не что. Код должен показывать, что происходит; комментарий — почему такой выбор.
