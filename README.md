@@ -5,4 +5,4 @@
 ---
 
 - [**Стандарты маленьких проектов**](https://github.com/BlizzyIxyz/Code-Standards/tree/Code-standarts-small) - Стандарты оптимизированные для маленьких и быстрых проектов.
-- [**Стандарты средних и больших проектов**](https://github.com/BlizzyIxyz/Code-Standards/tree/Code-standarts-medium-large) - Стандарты оптимизированные средних/больших проектов и долгосрочную разработку.
+- [**Стандарты средних и больших проектов**](https://github.com/BlizzyIxyz/Code-Standards/tree/%D0%A1ode-standarts-medium-large?tab=readme-ov-file) - Стандарты оптимизированные средних/больших проектов и долгосрочную разработку.
