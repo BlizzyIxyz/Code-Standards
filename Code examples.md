@@ -113,9 +113,9 @@ sequenceDiagram
   Note over AttackSystem, HealthUI: Игрок получает урон
   AttackSystem ->> Player: ApplyDamage(10)
   Player ->> Health: ApplyDamage(10)
-  Health -->> Health: Обновляет _current (90)
-  Health -->> Player: (возврат управления)
-  Player ->> Player: Проверяет состояние здоровья
+  Health -->> Health: Обновляет CurrentHealth (90)
+  Health -->> Player: HealthChangedEvent(90, 100)
+  Player ->> Player: Обрабатывает событие здоровья
   Player ->> GameEventBus: Publish(new HealthChangedEvent(90, 100))
   GameEventBus ->> HealthUI: OnHealthChanged(eventData)
   HealthUI ->> HealthUI: UpdateHealthDisplay(90, 100)
