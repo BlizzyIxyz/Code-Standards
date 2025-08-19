@@ -192,11 +192,12 @@ public class PlayerAnimator : MonoBehaviour
 
 ## Взаимодействие слоёв
 
+```mermaid
 graph TD
     C[Domain Layer] --> B[Application Layer]
     B[Application Layer] --> D[Infrastructure Layer]
     A[Presentation Layer] --> D[Infrastructure Layer]
-    D[Infrastructure Layer] --> B[Application Layer]
+```
 
 Таким образом:
 - Domain является независимым ядром
@@ -254,18 +255,22 @@ graph TD
 ### Через событийную шину (Event Bus)
 Компоненты различных систем общаются через общую шину событий инфраструктуры. Например, после создания карты модуль «Генератор карты» публикует событие с данными карты, а модуль «Генератор мобов» подписан на него и, получив данные, начинает создавать врагов на карте. Ни один из модулей не хранит ссылки на другой – обмен идёт через сообщение.
 
+```mermaid
 graph LR
     MapGenerator -->|LevelGeneratedEvent| EventBus
     EnemyGenerator -->|подписан на LevelGeneratedEvent| EventBus
     EventBus --> EnemyGenerator
+```
 
 ### Оркестратор (дирижёр) систем
 Создаётся специальный компонент (например, GameManager или LevelDirector), который управляет последовательностью действий в системах. Он может поочерёдно вызывать методы разных систем и передавать им результаты. Например, дирижёр сначала вызывает `GenerateMap()`, получает объекты карты, а затем передаёт их в `SpawnMobs(mapData)`. Генератор карты и генератор мобов сами друг о друга не знают – их связывает оркестратор.
 
+```mermaid
 graph LR
     LevelDirector --> MapGenerator
     LevelDirector --> |MapData| EnemyGenerator
     MapGenerator --> |MapData| LevelDirector
+```
 
 ### Прямая DI-связь (когда уместно)
 Если взаимодействие двух систем всегда детерминировано и предполагается жёсткая последовательность, можно внедрить одну систему в другую через Zenject. Например, напрямую передать интерфейс `IMobGenerator` в `MapGenerator`. Этот подход удобен для простоты, но его следует применять с осторожностью: он допустим только внутри одного слоя (или через общие интерфейсы), чтобы не нарушать принцип разделения слоёв.
@@ -291,6 +296,7 @@ MonoBehaviour-скрипты нужны Unity для прикрепления к
 
 Аналогичный подход используется и в других системах (очки опыта, инвентарь и т.д.): их данные остаются в простых классах или данных, а MonoBehaviour-скрипты только обрабатывают события.
 
+```mermaid
 graph LR
     HealthLogic[HealthLogic]
     HealthUI[HealthUI]
@@ -300,6 +306,7 @@ graph LR
     Obstacle --> HealthLogic
 
     HealthLogic -->|HealthChangedEvent| HealthUI
+```
 
 ### Примеры кода
 
