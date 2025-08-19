@@ -1,8 +1,31 @@
-# Unity Code Standards
-- Этот репозиторий содержит стандарты ведения кода для Unity-проектов, оптимизированные для разной сложности проектов.
-- Стандарты охватывают структуру проекта, стиль кода, архитектурные паттерны и лучшие практики для поддержания чистоты, масштабируемости и эффективной командной работы.
+```mermaid
+flowchart TD
+    subgraph MVC
+        A[View] -->|1. User Input| B[Controller]
+        B -->|2. Update State| C[Model]
+        C -->|3. Notify Changes| A
+        B -->|4. Render Data| A
+        C -->|5. Direct Data Access| A
+    end
+```
 
----
+```mermaid
+flowchart TD
+    subgraph MVP
+        A[View] -->|1. User Events| B[Presenter]
+        B -->|2. Update UI| A
+        B -->|3. Request Data| C[Model]
+        C -->|4. Return Data| B
+        B -.->|5. Passive View| A
+    end
+```
 
-- [**Стандарты маленьких проектов**](https://github.com/BlizzyIxyz/Code-Standards/tree/Code-standarts-small) - Стандарты оптимизированные для маленьких и быстрых проектов.
-- [**Стандарты средних и больших проектов**](https://github.com/BlizzyIxyz/Code-Standards/tree/%D0%A1ode-standarts-medium-large?tab=readme-ov-file) - Стандарты оптимизированные средних/больших проектов и долгосрочную разработку.
+```mermaid
+flowchart TD
+    subgraph MVVM
+        A[View] <-->|1. Data Binding| B[ViewModel]
+        B -->|2. Commands| C[Model]
+        C -->|3. Reactive Stream| B
+        B -.->|4. State Transformation| A
+    end
+```
