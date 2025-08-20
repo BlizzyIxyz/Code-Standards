@@ -75,14 +75,6 @@ graph TD
     B[Application Layer] --> D[Infrastructure Layer]
     A[Presentation Layer] --> D[Infrastructure Layer]
     D[Infrastructure Layer] --> B[Application Layer]
-    
-    style C fill:#e6f7ff,stroke:#1890ff
-    style B fill:#ffe58f,stroke:#faad14
-    style D fill:#f6ffed,stroke:#52c41a
-    style A fill:#fff7e6,stroke:#fa8c16
-    
-    classDef layer fill:#f0f0f0,stroke:#d9d9d9;
-    class C,B,D,A layer;
 ```
 
 Таким образом:
@@ -143,10 +135,6 @@ graph LR
     MapGenerator -->|LevelGeneratedEvent| EventBus
     EnemyGenerator -->|подписан на LevelGeneratedEvent| EventBus
     EventBus --> EnemyGenerator
-    
-    style MapGenerator fill:#ffe58f,stroke:#faad14
-    style EnemyGenerator fill:#ffe58f,stroke:#faad14
-    style EventBus fill:#f6ffed,stroke:#52c41a
 ```
 
 #### Оркестратор (дирижёр) систем
@@ -157,10 +145,6 @@ graph LR
     LevelDirector --> MapGenerator
     LevelDirector -->|MapData| EnemyGenerator
     MapGenerator -->|MapData| LevelDirector
-    
-    style LevelDirector fill:#ffe58f,stroke:#faad14
-    style MapGenerator fill:#ffe58f,stroke:#faad14
-    style EnemyGenerator fill:#ffe58f,stroke:#faad14
 ```
 
 #### Прямая DI-связь (когда уместно)
